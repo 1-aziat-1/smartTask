@@ -1,10 +1,12 @@
-function toCamelCase(str){
-  let arr = str.split(/[-_]/);
-  arr = arr.map((item) => {
-    if(arr.indexOf(item) === 0) return item;
-    return item[0].toUpperCase() + item.slice(1);
-  });
-  return arr.join('');
-}
+var uniqueInOrder=function(iterable){
+  let result = [];
+  let n;
+  for(i=0; i<=iterable.length-1; i++){
+    if(iterable[i] !== n){
+      result.push(n=iterable[i]);
+    }
+  }
+  return result;
+};
 
-console.log(toCamelCase('the-stealth_warrior'));
+console.log(uniqueInOrder('AAAABBBCCDAABBB'));
