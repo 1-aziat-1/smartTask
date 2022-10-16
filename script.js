@@ -1,17 +1,12 @@
-function deleteNth(arr,n){
-  let map = new Map();
-  let result = [];
-  for(let i of arr){
-    let z = map.get(i);
-    if(z>=n) continue;
-    result.push(i);
-    if(z){
-      map.set(i,++z);
-    }else{
-      map.set(i,1);
+function reverse(str){
+  if (str.trim().length === 0) return ''
+  let arr = str.split(' ');
+  return arr.map((item)=>{
+    if(arr.indexOf(item) % 2 !== 0){
+      item = item.split('').reverse().join('');
     }
-  }
-  console.log(map);
-  return result
+    return item;
+  }).join(' ');
 }
-console.log(deleteNth([20,37,20,21,], 1));
+
+console.log(reverse('       '));
