@@ -1,18 +1,17 @@
-decodeMorse = function(morseCode){
-  let result = '';
-  let arr = morseCode.split('   ');
-  let mas = [];
-  for (let i of arr){
-    mas.push(i.split(' '));
-  }
-  for(let i of mas){
-    for(let j of i) {
-      if(j.length === 0) continue;
-      result += MORSE_CODE[j];
+function deleteNth(arr,n){
+  let map = new Map();
+  let result = [];
+  for(let i of arr){
+    let z = map.get(i);
+    if(z>=n) continue;
+    result.push(i);
+    if(z){
+      map.set(i,++z);
+    }else{
+      map.set(i,1);
     }
-    result += ' ';
   }
-  return result;
-};
-
-console.log(decodeMorse('     ··· −−− ···'));
+  console.log(map);
+  return result
+}
+console.log(deleteNth([20,37,20,21,], 1));
